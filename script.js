@@ -39,8 +39,18 @@ let square_height = "11.1%";
 let rows = 8;
 let cols = 8;
 
+//random color generator funciton
+function randomColor() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var randoColor = "rgb(" + x + "," + y + "," + z + ")";
+    return randoColor
+}
+
 // main entry point for the program
 makeACheckerboard();
+checkboardWithRandom();
 
 
 
@@ -71,6 +81,25 @@ function makeACheckerboard(){
         }
     }
 
-    
-
 }
+
+//write a function that Generates a checkerboard with random colors for each square
+function checkboardWithRandom(){
+    // loop down the rows.
+    for(let i = 0; i < rows; i++){
+        
+        // container for the row.
+        let UI_body = UI_box(String(i));
+
+        // loop across the columns.
+        for(let j = 0; j < cols; j++){
+            //assign a random hexadecimal to the variable color
+            color = randomColor();
+            // generates a square and attaches it to the UI_box container
+            square(UI_body, square_width, square_height, color);
+            }
+        }
+   }
+        
+           
+           
